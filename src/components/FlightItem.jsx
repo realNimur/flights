@@ -71,7 +71,7 @@ const FlightItem = ({ flight }) => {
             <header className="flight-item__header">
                 <div className="flight-item__logo">
                     <img
-                        src={'../logo.png'}
+                        src={'/flights/logo.png'}
                         alt="Logo"
                         className="flight-item__picture"
                     />
