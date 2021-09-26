@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState, useEffect } from 'react';
+import FlightsList from './components/FlightsList';
+import Sidebar from './components/Sidebar';
+import { ContextProvider } from './context';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [flights, setFlight] = useState([]);
+
+    useEffect(() => {
+        fetch('flights.json')
+            .then((res) => res.json())
+            .then((data) => {
+                setFlight(data.result.flights);
+            });
+    }, []);
+
+    return (
+        <div className="App">
+            <ContextProvider>
+                <Sidebar />
+                <FlightsList flights={flights} />
+            </ContextProvider>
+        </div>
+    );
 }
 
 export default App;
