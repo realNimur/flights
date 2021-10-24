@@ -1,3 +1,7 @@
+# Описание
+
+Фильтрация JSON файла полётов по стандартным параметрам без перезагрузки страницы. 
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
